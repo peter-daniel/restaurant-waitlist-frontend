@@ -3,6 +3,10 @@ $(document).ready(function() {
    console.log('ajax loaded');
    $.getJSON('http://localhost:3000', function(data) {
       $.each(data, function(i) {
+        if (Object.keys(data).length === 0){
+          $('#restaurant-list').append('<h2>').text('No restauants yet! Please try again later.');
+        } else {
+          console.log(Object.keys(data).length);
          var image = ($('<img>')
             .attr('src', 'https://placehold.it/73x73')
             .attr('alt', 'data[i].restaurantName'));
@@ -43,8 +47,8 @@ $(document).ready(function() {
          $(homeStats).append(queue, queueNum, wait, waitNum);
          $(homeRestaurant).append(homeStats);
          $('#restaurant-list').append(homeRestaurant);
+       }
       });
-
    });
   //  MOMENT SHIT
   //  var max = customers.map(function(customer){
