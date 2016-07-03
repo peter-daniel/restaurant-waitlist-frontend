@@ -1,0 +1,374 @@
+html{
+
+}
+
+body{
+  margin: 0;
+
+}
+
+#wrapper{
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  height: 120px;
+  width: 100%;
+  background: #ebebeb;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  background: #ebebeb;
+}
+
+.container{
+  padding-top: 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.home-restaurant{
+  width: 305px;
+  margin: 7px;
+  display: flex;
+  flex-flow:row;
+  justify-content: flex-start;
+}
+
+.details{
+  background: #e8e8e8;
+  width: 210px;
+  padding: 10px;
+  display: flex;
+  flex-flow:column;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+
+.home-stats{
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+  background: #13747d;
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content:space-around;
+  border-left: 1px dashed #ccc;
+}
+table{
+  width: 100%;
+}
+
+.customer-row{
+  border-bottom: 5px solid white;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  background: #05A5B0;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+h2{
+  margin-top: 8px;
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+
+.name {
+  text-align: left;
+  padding-left: 15px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.timer{
+
+  letter-spacing: 1.2px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.timer span{
+  letter-spacing: .2px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+td{
+  padding:10px 20px;
+  border-radius: 5px;
+}
+
+thead{
+  color: #999;
+}
+
+
+.heads {
+  padding-top: 12px;
+  color: #878787;
+  background-image: url('../images/head-back.png');
+  font-size: 25px;
+  text-align: center;
+}
+
+.queue, .wait{
+  text-align: left;
+  font-size: 12px;
+}
+
+.queue-num{
+  text-align: left;;
+  font-size: 80px;
+  font-weight: 500;
+}
+.wait-num{
+  text-align: left;;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+
+
+
+/*///////////////////////////////////////////////
+BUTTONS
+///////////////////////////////////////////////*/
+
+.btn-addto5 {
+  font-family: 'Teko', sans-serif;
+  position: absolute;
+  color: #0abfbc;
+  width: 40px;
+  background: #fcf7c5;
+  border: 2px solid #0abfbc;
+  padding: 5px 5px 2px 5px;
+  margin: -235px 0 15px 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-addto5:hover {
+  background: #0abfbc;
+  color: white;
+}
+
+.btn-remove-from5 {
+  font-family: 'Teko', sans-serif;
+  position: absolute;
+  color: #0abfbc;
+  width: 22px;
+  background: #fcf7c5;
+  border: 2px solid #0abfbc;
+  padding: 1px 2px 0 2px;
+  margin: -162px 0 15px 5px;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-remove-from5:hover {
+  background: #0abfbc;
+  color: white;
+}
+
+.btn-submit {
+  color: white;
+  width: 100px;
+  background: #13747d;
+  padding: 8px;
+  margin: 6px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wide {
+  width: 98%;
+  padding: 12px;
+
+}
+
+.upload {
+  background: rgb(106, 106, 106);
+  width: 98%;
+  padding: 12px;
+}
+
+
+.btn-submit:hover{
+  background: #0abfbc;
+}
+
+.btn-register {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 35px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-logout{
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  width: 80px;
+  height: 35px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-remove{
+  background: white;
+  width: 100px;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.btn-small a:link, .btn-small a:active,  .btn-small a:visited{
+  text-decoration: none;
+  color: #d0cca2;
+}
+
+input, placeholder {
+  color: #d0cca2;
+}
+
+input, textarea {
+  font-size: 25px;
+  background : white;
+  color: black;
+  font-variant: all-small-caps;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.loginForm input {
+  width: 200px;
+  padding: 8px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.regForm input {
+  width: 92%;
+  padding: 12px;
+  margin: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.customerForm input {
+  width: 89.5%;
+  padding: 12px;
+  margin: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.change-eta {
+  margin-bottom: 10px;
+  float: right;
+  display: flex;
+  width: 200px;
+}
+
+.regForm {
+  display: flex;
+  flex-flow: column;
+}
+
+.flex{
+  display: flex;
+}
+
+
+.regPage-container {
+  margin-top:30px;
+  display: flex;
+  flex-flow: row
+}
+
+.regPage-container .one {
+  border-right: 1px dashed #ccc;
+  width: 55%;
+  text-align: center;
+  margin: 10px;
+  padding-right: 30px;
+}
+.regPage-container .two {
+  width: 30%;
+}
+
+.customerPage-container {
+  margin-top: 30px;
+  display: flex;
+  flex-flow: row
+}
+
+.customerPage-container .one {
+  border-left: 1px dashed #ccc;
+  width: 60%;
+  margin-left: 25px;
+  padding-left: 25px;
+}
+
+.customerPage-container .two {
+  width: 40%;
+}
+
+.load-box{
+  border-radius: 5px;
+  background: #e3e3e3;
+  width: 100%;
+  height: 325px;
+  margin: 17px 5px;
+}
