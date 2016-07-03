@@ -16,18 +16,41 @@ $(document).ready(function() {
             .addClass('details')
             .append(image, restaurantName, website, phone);
          $(homeRestaurant).append(details);
-
+         var customers = data[i].customers;
          var homeStats = $('<div>').addClass('home-stats');
-         var queue = $('<div>').addClass('queue').text('QUEUE:');
+         var queue = $('<div>').addClass('queue').text('No. in Queue:');
          var queueNum = $('<div>').addClass('queue-num').text(data[i].customers.length);
-         var wait = $('<div>').addClass('wait').text('WAIT: ');
-         var waitNum = $('<div>').addClass('wait-num').text('hhh');
+         var wait = $('<div>').addClass('wait').text('Waiting Time: ');
+         var now = new Date();
+         var momentNow = moment(now);
+         var waitingArray = [];
+
+         $.each(data[i].customers, function(j){
+          //  console.log(data[i].customers[j].finishedWaiting);
+           var delta =
+           (moment(data[i].customers[j].finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
+           waitingArray.push(delta);
+         });
+         var eta = Math.max.apply(Math,waitingArray);
+         if (eta < 1) {
+           eta = "Due";
+         }
+         console.log(waitingArray);
+         console.log(eta);
+         var waitNum = $('<div>').addClass('wait-num')
+         .text(eta);
+            // .text(_.max(customers, function(customers){ return customers.finishedWaiting}))
          $(homeStats).append(queue, queueNum, wait, waitNum);
+         $(homeRestaurant).append(homeStats);
          $('#restaurant-list').append(homeRestaurant);
-         $('#restaurant-list').append(homeStats);
       });
 
    });
+  //  MOMENT SHIT
+  //  var max = customers.map(function(customer){
+  //    return moment(customer.finishedWaiting, 'DD.MM.YYYY');
+  //  });
+  //  moment.max(max);  // '11.01.1993'
    //
    //  // ADD A DONUT
    //  $('button').on('click', function(event) {
