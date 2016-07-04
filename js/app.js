@@ -72,7 +72,7 @@ $(document).ready(function() {
           localStorage.setItem('Authorization', "Bearer " + data.token);
           window.location.replace('./restaurantView.html?r_id=' + data.restaurant.restaurantNameSuburb);
         } else {
-          console.log("Fuck Off");
+          console.log("Unable to log in!");
         }
       });
     });
