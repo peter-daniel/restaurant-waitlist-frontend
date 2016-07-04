@@ -1,22 +1,42 @@
 html{
-
 }
 
 body{
   margin: 0;
+}
 
+.more-top-bottom{
+  margin: 15px 0 10px 0;
+}
+
+.less-top-bottom {
+  margin: 2px;
+}
+
+a:link, a:visited, a:active{
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 #wrapper{
   width: 960px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
 header {
   padding: 20px;
   text-align: center;
-  height: 120px;
+  height: 140px;
   width: 100%;
   background: #ebebeb;
 }
@@ -115,6 +135,10 @@ footer {
 
 /*//////////////////////////////////////////////////*/
 
+.restaurantTitle{
+  font-size: 16px;
+  margin: 20px;
+}
 
 .customer-row{
   border-bottom: 5px solid white;
@@ -155,13 +179,8 @@ footer {
   border-left: 1px dashed #ccc;
 }
 #customerTable {
+  text-align: center;
   width: 700px;
-}
-
-p {
-  margin-top: 2px;
-  margin-bottom: 10px;
-  font-size: 14px;
 }
 
 h2{
@@ -352,6 +371,11 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
+.loginForm {
+  margin-top: 100px;
+  /*display: flex;*/
+}
+
 .loginForm input {
   width: 200px;
   padding: 8px;
@@ -384,7 +408,7 @@ input:-webkit-autofill {
 CHECKBOX
 /////////////////////////////////*/
 
-.control {
+/*.control {
 	font-size: 18px;
 	position: relative;
 	display: block;
@@ -414,7 +438,6 @@ CHECKBOX
 	border-radius: 50%;
 }
 
-/* Checkbox tick */
 .control--checkbox .control__indicator:after {
 	top: 4px;
 	left: 10px;
@@ -424,45 +447,40 @@ CHECKBOX
 	border: solid #fff;
 	border-width: 0 2px 2px 0;
 }
-/* Check mark */
+
 .control__indicator:after {
 	position: absolute;
 	display: none;
 	content: '';
 }
 
-/* Show check mark */
 .control input:checked ~ .control__indicator:after {
 	display: block;
 }
 
-
-/* Hover and focus states */
 .control:hover input ~ .control__indicator,
 .control input:focus ~ .control__indicator {
 	background: #ccc;
 }
 
-/* Checked state */
+
 .control input:checked ~ .control__indicator {
 	background: #e4b63b;
 }
 
-/* Hover state whilst checked */
+
 .control:hover input:not([disabled]):checked ~ .control__indicator,
 .control input:checked:focus ~ .control__indicator {
 	background: #0e647d;
 }
 
-/* Disabled state */
 .control input:disabled ~ .control__indicator {
 	pointer-events: none;
 	opacity: .6;
 	background: #e6e6e6;
 }
+*/
 
-/*///////////////////////////////////////////
-////////////////////////////////////////////*/
 
 .delayForm input {
   width: 30px;
@@ -516,7 +534,7 @@ CHECKBOX
 }
 
 .customerPage-container .one {
-  border-left: 1px dashed #ccc;
+  text-align: center;
   width: 70%;
   margin-left: 25px;
   padding-left: 25px;

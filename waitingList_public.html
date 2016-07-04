@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700italic,700,600italic,600,400italic,300italic,300,800italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="js/restaurantView.js"></script>
+    <title>Waiting List</title>
+</head>
+
+<body>
+    <header>
+        <button class="btn-register">Register</button>
+        <div>
+            <form class="loginForm" method="get">
+                <input type="email" name="user_email" required>
+                <input type="password" name="user_pwd" required>
+                <button class="btn-submit">Log In</button>
+            </form>
+        </div>
+    </header>
+
+    <div id="wrapper">
+
+        <div class="customerPage-container">
+            <div class="one">
+                <div id="restaurantTitle"></div>
+                <!-- customer -->
+
+                <table id="customerTable">
+                    <thead>
+                        <tr>
+                            <td><i class="fa fa-user fa-2x" aria-hidden="true"></i></td>
+                            <td>NAME</td>
+                            <td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="customerListAdmin">
+
+                    </tbody>
+
+                </table>
+                <!-- end customer -->
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+    <footer>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="js/waitingList_public.js"></script>
+
+</body>
+
+</html>

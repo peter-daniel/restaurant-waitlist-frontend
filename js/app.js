@@ -8,11 +8,16 @@ $(document).ready(function() {
         $('#restaurant-list').append('<h2>').text('No restauants yet! Please try again later.');
       } else {
         var image = ($('<img>')
-          .attr('src', 'https://placehold.it/73x73')
-          .attr('alt', 'data[i].restaurantName'));
-        var restaurantName = ($('<h2>').text(data[i].restaurantName));
-        var website = ($('<p><br>').text(data[i].website));
-        var phone = ($('<p>').text('Contact: ' + data[i].phone));
+          .css('margin-left', '55px')
+          .attr({
+            'src': './images/logo.png',
+            'width': '72px',
+            'height': '72px',
+            'alt': 'data[i].restaurantName'
+          }));
+        var restaurantName = ($('<h2>').addClass('more-top-bottom').text(data[i].restaurantName));
+        var website = ($('<p>').addClass('less-top-bottom').text(data[i].website));
+        var phone = ($('<p>').addClass('less-top-bottom').text('Contact: ' + data[i].phone));
         var homeRestaurant = $('<div>').addClass('home-restaurant');
         var details = $('<div>')
           .addClass('details')
