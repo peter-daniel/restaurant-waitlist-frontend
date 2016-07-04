@@ -48,26 +48,17 @@ $(document).ready(function() {
         $(homeRestaurant).append(homeStats);
 
         // If local Storage has no authentication token, render the link tag to non-admin page
-        if (localStorage.getItem('Authentication')){
-          var linkToAdmin = $('<a>')
-          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
+          var link = $('<a>')
+          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb) // This need to be changed to the customer only queue list
           .append(homeRestaurant);
-          $('#restaurant-list').append(linkToAdmin);
-        } else {
-          var linkToNonAdmin = $('<a>')
-          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
-          .append(homeRestaurant);
-          $('#restaurant-list').append(linkToNonAdmin);
-        }
+          $('#restaurant-list').append(link);
       }
     });
   });
 
   // Restaurant authentication:
-  $('.btn-submit').on('click', function(){
+  $('#btn-signin').on('click', function(){
       event.preventDefault();
-      console.log($('input:eq(0)').val());
-      console.log('Clicked!');
       $.ajax({
         url: 'http://localhost:3000/signin',
         data: {
@@ -77,12 +68,45 @@ $(document).ready(function() {
         dataType: 'json',
         method: 'POST',
       }).done(function(data){
-        console.log(data.restaurant);
-        // console.log(data.token);
-        localStorage.setItem('Authentication', "Bearer " + data.token);
-        location.reload();
-        console.log(localStorage.getItem('Authentication'));
+        if(data){
+          localStorage.setItem('Authorization', "Bearer " + data.token);
+          window.location.replace('./restaurantView.html?r_id=' + data.restaurant.restaurantNameSuburb);
+        } else {
+          console.log("Fuck Off");
+        }
       });
     });
+
+    // Route to restaurant.html for the restaurant registration form
+    $('.btn-register').on('click', function(){
+        event.preventDefault();
+        window.location.replace('./register.html');
+      });
+
+    $('#btn-create-restaurant').on('click', function(){
+      event.preventDefault();
+      $.ajax({
+         url: 'http://localhost:3000/restaurant/add',
+         method: 'POST',
+         data: {
+           "postcode": $('#restaurant-postcode').val(),
+           "suburb": $('#restaurant-suburb').val(),
+           "address": $('#restaurant-address').val(),
+           "phone": $('#restaurant-phone').val(),
+           "website": $('#restaurant-website').val(),
+           "restaurantName": $('#restaurant-name').val(),
+           "cuisine": $('#restaurant-cuisine').val(),
+           "username": $('#restaurant-username').val(),
+           "password": $('#restaurant-password').val(),
+           "restaurantEmail": $('#restaurant-email').val()
+         }
+      }).done(function(data) {
+        //  location.reload();
+        window.location.replace('./home.html');
+         console.log("database should load new customer");
+      });
+    });
+
+
 
 }); // end document ready
