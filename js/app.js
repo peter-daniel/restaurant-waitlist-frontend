@@ -46,7 +46,7 @@ $(document).ready(function() {
         $(homeStats).append(queue, queueNum, wait, waitNum);
         $(homeRestaurant).append(homeStats);
         var link = $('<a>')
-          .attr('href', '/restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
+          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
           .append(homeRestaurant);
         $('#restaurant-list').append(link);
       }
