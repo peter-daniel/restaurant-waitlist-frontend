@@ -1,8 +1,9 @@
 $(document).ready(function() {
-
+   var buttonStatus = false;
    var restaurantNameSuburb = "";
    console.log(window.location);
-
+   var globalEta;
+   // function to capture an id across various pages
    function getParameterByName(name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, "\\$&");
@@ -44,6 +45,7 @@ $(document).ready(function() {
          }
          console.log(waitingArray);
          console.log(eta);
+         globalEta = eta;
          var customerTimer = $('<td>')
             .attr('width', '10px')
             .text(eta)
@@ -177,7 +179,8 @@ $(document).ready(function() {
       customer_mobile = $('#customer_mobile').val();
       customer_heads = $('#customer_heads').val();
       customer_eta = $('#customer_eta').val();
-      customer_vip = $('#customer_vip').val();
+      // customer_vip = $('#customer_vip').val();
+      if (buttonStatus === false){
 
       $.ajax({
          url: 'http://localhost:3000/' + restaurantNameSuburb + '/addcustomer',
@@ -188,7 +191,7 @@ $(document).ready(function() {
             phone: customer_mobile,
             heads: customer_heads,
             eta: customer_eta,
-            isVip: customer_vip
+            // isVip: customer_vip
          },
          success: function() {
             console.log('added succesfully');
@@ -200,6 +203,30 @@ $(document).ready(function() {
          location.reload();
          console.log("database should load new customer");
       });
+    } // end if statement
+    else {
+      $.ajax({
+         url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + $('#newCustomer').attr('data-class') + '/update',
+         method: 'PUT',
+         data: {
+            //add the input data to the api
+            customerName: customer_name,
+            phone: customer_mobile,
+            heads: customer_heads,
+            eta: customer_eta
+            // isVip: customer_vip
+         },
+         success: function() {
+            console.log('updated succesfully');
+         },
+         error: function() {
+            console.log('not updated');
+         }
+      }).done(function() {
+         location.reload();
+         console.log("database should load new customer");
+      });
+    }
    });
 
    function deleteMe() {
@@ -216,15 +243,29 @@ $(document).ready(function() {
    }
 
    function editMe(){
-     console.log($(this).attr('id'));
+     console.log("before click = "+ buttonStatus);
+     var buttonClass = $(this).attr('class').split(' ')[1];
      $.ajax({
-        url: 'http://localhost:3000/' + restaurantNameSuburb +$(this).attr('id')+ '/removecustomer',
+        url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass,
         method: 'GET',
         dataType: 'json',
 
-     }).done(function() {
-        $('this.parent').remove();
-        console.log("deleted");
+     }).done(function(data) {
+        if(buttonStatus === false){
+          buttonStatus = true;
+          $('#customer_name').val(data.customerName);
+          $('#customer_mobile').val(data.phone);
+          $('#customer_heads').val(data.heads);
+          $('#customer_eta').val(globalEta);
+          $('#newCustomer').attr('data-class', buttonClass);
+        } else {
+          buttonStatus = false;
+          $('#customer_name').val("");
+          $('#customer_mobile').val("");
+          $('#customer_heads').val("");
+          $('#customer_eta').val("");
+        }
+        console.log("after click = "+ buttonStatus);
      });
    }
 }); //end doc ready
