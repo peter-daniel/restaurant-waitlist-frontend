@@ -37,7 +37,7 @@ $(document).ready(function() {
                (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
             waitingArray.push(delta);
          });
-         var eta = Math.max.apply(Math, waitingArray);
+         var eta = Math.max.apply(Math, waitingArray).toFixed(1);
          if (eta < 1 && data[i].length !== 0) {
             eta = "Due";
          } else if (data[i].length === 0) {
