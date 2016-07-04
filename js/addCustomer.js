@@ -15,80 +15,88 @@ $(document).ready(function() {
    }
    restaurantNameSuburb = getParameterByName('r_id');
    console.log(restaurantNameSuburb);
-   $.getJSON('http://localhost:3000/' + restaurantNameSuburb, function(data) {
 
-      $.each(data, function(i) {
-         var customerRef = data[i];
+       $.ajax({
+         url: 'http://localhost:3000/' + restaurantNameSuburb + '/admin',
+         headers: {
+           "Authorization": localStorage.getItem('Authentication')
+         },
+         dataType: 'json',
+         method: 'GET',
+       }).done(function(data){
 
-         var customerRow = $('<tr>').addClass('customer-row '+ customerRef.phone);
-         var customerHeads = $('<td>').addClass('heads')
-            .attr('width', '10px')
-            .text(customerRef.heads);
-         var customerName = $('<td>')
-            .attr('width', '300px')
-            .addClass('name')
-            .text(customerRef.customerName);
-         // insert time tracking
-         var now = new Date();
-         var momentNow = moment(now);
-         var waitingArray = [];
-         $.each(customerRef, function() {
-            var delta =
-               (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
-            waitingArray.push(delta);
-         });
-         var eta = Math.max.apply(Math, waitingArray).toFixed(1);
-         if (eta < 1 && data[i].length !== 0) {
-            eta = "Due";
-         } else if (data[i].length === 0) {
-            eta = "--";
-         }
-         console.log(waitingArray);
-         console.log(eta);
-         globalEta = eta;
-         var customerTimer = $('<td>')
-            .attr('width', '10px')
-            .text(eta)
-            .addClass('timer');
-         // end time tracking
+               $.each(data, function(i) {
+                  var customerRef = data[i];
 
-         var formTd = $('<td>');
-         var delayForm = $('<form>').addClass('delayForm flex');
-         var customerDelayField = $('<input>')
-            .attr('type', 'number')
-            .attr('placeholder', '#');
-         var customerDelayBtn = $('<button>')
-            .addClass('btn-remove')
-            .text('Do it');
-         var formComplete = $(delayForm).append(customerDelayField, customerDelayBtn);
-         $(formTd).append(formComplete);
+                  var customerRow = $('<tr>').addClass('customer-row '+ customerRef.phone);
+                  var customerHeads = $('<td>').addClass('heads')
+                     .attr('width', '10px')
+                     .text(customerRef.heads);
+                  var customerName = $('<td>')
+                     .attr('width', '300px')
+                     .addClass('name')
+                     .text(customerRef.customerName);
+                  // insert time tracking
+                  var now = new Date();
+                  var momentNow = moment(now);
+                  var waitingArray = [];
+                  $.each(customerRef, function() {
+                     var delta =
+                        (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
+                     waitingArray.push(delta);
+                  });
+                  var eta = Math.max.apply(Math, waitingArray).toFixed(1);
+                  if (eta < 1 && data[i].length !== 0) {
+                     eta = "Due";
+                  } else if (data[i].length === 0) {
+                     eta = "--";
+                  }
+                  console.log(waitingArray);
+                  console.log(eta);
+                  globalEta = eta;
+                  var customerTimer = $('<td>')
+                     .attr('width', '10px')
+                     .text(eta)
+                     .addClass('timer');
+                  // end time tracking
 
-         var customerEditRemoveBtnTd = $('<td>').addClass('flex');
-         var customerRemoveBtn = $('<button>')
-            .addClass('btn-remove '+customerRef.phone)
-            // .attr('id', customerRef.phone)
-            .css('margin-left', '5px')
-            .text('Remove')
-            .on('click', deleteMe);
-         var customerEditBtn = $('<button>')
-            // .attr('id', customerRef.phone)
-            .addClass('btn-remove '+customerRef.phone)
-            .text('Edit')
-            .on('click', editMe);
-         $(customerEditRemoveBtnTd).append(customerEditBtn, customerRemoveBtn);
+                  var formTd = $('<td>');
+                  var delayForm = $('<form>').addClass('delayForm flex');
+                  var customerDelayField = $('<input>')
+                     .attr('type', 'number')
+                     .attr('placeholder', '#');
+                  var customerDelayBtn = $('<button>')
+                     .addClass('btn-remove')
+                     .text('Do it');
+                  var formComplete = $(delayForm).append(customerDelayField, customerDelayBtn);
+                  $(formTd).append(formComplete);
 
-         $(customerRow).append(
-            customerHeads,
-            customerName,
-            customerTimer,
-            formTd,
-            customerEditRemoveBtnTd
-         );
+                  var customerEditRemoveBtnTd = $('<td>').addClass('flex');
+                  var customerRemoveBtn = $('<button>')
+                     .addClass('btn-remove '+customerRef.phone)
+                     // .attr('id', customerRef.phone)
+                     .css('margin-left', '5px')
+                     .text('Remove')
+                     .on('click', deleteMe);
+                  var customerEditBtn = $('<button>')
+                     // .attr('id', customerRef.phone)
+                     .addClass('btn-remove '+customerRef.phone)
+                     .text('Edit')
+                     .on('click', editMe);
+                  $(customerEditRemoveBtnTd).append(customerEditBtn, customerRemoveBtn);
 
-         $('#customerListAdmin').append(customerRow);
+                  $(customerRow).append(
+                     customerHeads,
+                     customerName,
+                     customerTimer,
+                     formTd,
+                     customerEditRemoveBtnTd
+                  );
 
-      });
-   });
+                  $('#customerListAdmin').append(customerRow);
+
+               });
+       });
 
    //
    // function addCustomerToDomFromForm() {
@@ -185,6 +193,9 @@ $(document).ready(function() {
       $.ajax({
          url: 'http://localhost:3000/' + restaurantNameSuburb + '/addcustomer',
          method: 'POST',
+         headers: {
+           "Authorization": localStorage.getItem('Authentication')
+         },
          data: {
             //add the input data to the api
             customerName: customer_name,
@@ -208,6 +219,9 @@ $(document).ready(function() {
       $.ajax({
          url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + $('#newCustomer').attr('data-class') + '/update',
          method: 'PUT',
+         headers: {
+           "Authorization": localStorage.getItem('Authentication')
+         },
          data: {
             //add the input data to the api
             customerName: customer_name,
@@ -236,6 +250,9 @@ $(document).ready(function() {
      $.ajax({
         url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass + '/removecustomer',
         method: 'DELETE',
+        headers: {
+          "Authorization": localStorage.getItem('Authentication')
+        },
         dataType: 'json',
 
      }).done(function() {
@@ -250,6 +267,9 @@ $(document).ready(function() {
      $.ajax({
         url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass,
         method: 'GET',
+        headers: {
+          "Authorization": localStorage.getItem('Authentication')
+        },
         dataType: 'json',
 
      }).done(function(data) {
