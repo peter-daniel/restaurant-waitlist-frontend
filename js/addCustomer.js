@@ -19,7 +19,7 @@ $(document).ready(function() {
        $.ajax({
          url: 'http://localhost:3000/' + restaurantNameSuburb + '/admin',
          headers: {
-           "Authorization": localStorage.getItem('Authentication')
+           "Authorization": localStorage.getItem('Authorization') // This should be authorization; not authentication
          },
          dataType: 'json',
          method: 'GET',
@@ -203,12 +203,6 @@ $(document).ready(function() {
             heads: customer_heads,
             eta: customer_eta,
             // isVip: customer_vip
-         },
-         success: function() {
-            console.log('added succesfully');
-         },
-         error: function() {
-            console.log('not added');
          }
       }).done(function() {
          location.reload();
@@ -229,12 +223,6 @@ $(document).ready(function() {
             heads: customer_heads,
             eta: customer_eta
             // isVip: customer_vip
-         },
-         success: function() {
-            console.log('updated succesfully');
-         },
-         error: function() {
-            console.log('not updated');
          }
       }).done(function() {
          location.reload();
@@ -293,6 +281,15 @@ $(document).ready(function() {
         console.log("after click = "+ buttonStatus);
      });
    }
+
+   $('.btn-logout').on('click', function(){
+     event.preventDefault();
+     console.log('log out');
+     localStorage.removeItem('Authorization');
+     // Pseudo coding:
+     window.location.replace('./home.html');
+     // redirect('/home.html');
+   });
 }); //end doc ready
 
 
