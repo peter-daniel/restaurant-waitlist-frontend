@@ -19,7 +19,7 @@ $(document).ready(function() {
       $.each(data, function(i) {
          var customerRef = data[i];
 
-         var customerRow = $('<tr>').addClass('customer-row');
+         var customerRow = $('<tr>').addClass('customer-row '+ customerRef.phone);
          var customerHeads = $('<td>').addClass('heads')
             .attr('width', '10px')
             .text(customerRef.heads);
@@ -63,14 +63,14 @@ $(document).ready(function() {
 
          var customerEditRemoveBtnTd = $('<td>').addClass('flex');
          var customerRemoveBtn = $('<button>')
-            .addClass('btn-remove')
-            .attr('id', customerRef.phone)
+            .addClass('btn-remove '+customerRef.phone)
+            // .attr('id', customerRef.phone)
             .css('margin-left', '5px')
             .text('Remove')
             .on('click', deleteMe);
          var customerEditBtn = $('<button>')
-            .attr('id', customerRef.phone)
-            .addClass('btn-remove')
+            // .attr('id', customerRef.phone)
+            .addClass('btn-remove '+customerRef.phone)
             .text('Edit')
             .on('click', editMe);
          $(customerEditRemoveBtnTd).append(customerEditBtn, customerRemoveBtn);
@@ -203,14 +203,14 @@ $(document).ready(function() {
    });
 
    function deleteMe() {
-     console.log($(this).attr('id'));
+     var buttonClass = $(this).attr('class').split(' ')[1];
      $.ajax({
-        url: 'http://localhost:3000/' + restaurantNameSuburb +$(this).attr('id')+ '/removecustomer',
+        url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass + '/removecustomer',
         method: 'DELETE',
         dataType: 'json',
 
      }).done(function() {
-        $(this).parent.remove();
+        $('tr.'+buttonClass).remove();
         console.log("deleted");
      });
    }
