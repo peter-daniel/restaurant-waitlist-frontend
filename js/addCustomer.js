@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-   $.getJSON('http://localhost:3000/populate', function(data) {
+   $.getJSON('http://localhost:3000/5778ada4407e073be150665a/index', function(data) {
 
-      $.each(data[0].customers, function(i) {
-       var customerRef = data[0].customers[i];
+      $.each(data, function(i) {
+       var customerRef = data[i];
 
          var customerRow = $('<tr>').addClass('customer-row');
              var customerHeads = $('<td>').addClass('heads')
@@ -13,10 +13,28 @@ $(document).ready(function() {
               .attr('width', '300px')
               .addClass('name')
               .text(customerRef.customerName);
-             var customerTimer = $('<td>')
+              // insert time tracking
+              var now = new Date();
+              var momentNow = moment(now);
+              var waitingArray = [];
+              $.each(customerRef, function() {
+                var delta =
+                  (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
+                waitingArray.push(delta);
+              });
+              var eta = Math.max.apply(Math, waitingArray);
+              if (eta < 1 && data[i].length !== 0) {
+                eta = "Due";
+              } else if (data[i].length === 0) {
+                eta = "--";
+              }
+              console.log(waitingArray);
+              console.log(eta);
+              var customerTimer = $('<td>')
               .attr('width', '10px')
-              .text(customerRef.__v)
+              .text(eta)
               .addClass('timer');
+              // end time tracking
 
             var formTd = $('<td>');
               var delayForm = $('<form>').addClass('delayForm flex');
@@ -51,26 +69,6 @@ $(document).ready(function() {
 
       });
    });
-
-   var now = new Date();
-   var momentNow = moment(now);
-   var waitingArray = [];
-   $.each(data[i].customers, function(j) {
-     //  console.log(data[i].customers[j].finishedWaiting);
-     var delta =
-       (moment(data[i].customers[j].finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
-     waitingArray.push(delta);
-   });
-   var eta = Math.max.apply(Math, waitingArray);
-   if (eta < 1 && data[i].customers.length !== 0) {
-     eta = "Due";
-   } else if (data[i].customers.length === 0) {
-     eta = "--";
-   }
-   console.log(waitingArray);
-   console.log(eta);
-   var waitNum = $('<div>').addClass('wait-num')
-     .text(eta);
 
 }); //end doc ready
 
