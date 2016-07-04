@@ -1,5 +1,5 @@
-$(document).ready(function(blank, null) {
-
+$(document).ready(function(get, post, put) {
+  
   console.log('ajax loaded');
   $.getJSON('http://localhost:3000', function(data) {
     $.each(data, function(i) {
