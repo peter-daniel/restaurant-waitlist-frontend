@@ -16,65 +16,46 @@
 
 <body>
     <header>
-        <button class="btn-logout">Logout</button>
-        <button class="btn-register">Register</button>
-        <h1>Restaurant Wait-er</h1>
+        <button class="btn-register">Logout</button>
+        <img src="images/querer_logo.png" width="240" height="154" alt="" />
     </header>
 
     <div id="wrapper">
 
         <div class="customerPage-container">
-            <div class="two">
-                <form class="customerForm" method="get">
-                    <p style="margin-left:10px;">NEW CUSTOMER FORM</p>
+
+            <div class="top flex">
+                <form class="customerForm flex" method="get">
+                    <input id="customer_heads" type="text" name="customer_heads" value="" placeholder="Heads">
                     <input id="customer_name" type="text" name="customer_name" value="" placeholder="Name">
                     <input id="customer_mobile" type="text" name="customer_mobile" value="" placeholder="Mobile">
-                    <div class="flex">
-                        <input id="customer_heads" type="text" name="customer_heads" value="" placeholder="Heads">
-                        <input id="customer_eta" type="text" name="customer_eta" value="" placeholder="ETA">
-
-                        <!-- <div><p>VIP</p></div>
-                      	<label class="control control--checkbox">
-                      		<input id="customer_vip" type="checkbox" checked="checked" value="">
-                      		<div class="control__indicator"></div>
-                      	</label> -->
-
-                    </div>
-                    <button style="width: 96%;" id="newCustomer" class="btn-submit wide">Submit</button>
+                    <input id="customer_eta" type="text" name="customer_eta" value="" placeholder="ETA">
+                    <button id="newCustomer" class="btn-submit">Submit</button>
                 </form>
             </div>
-            <div class="one">
-                <p>CUSTOMER QUEUE</p>
+
+            <div class="bottom">
                 <!-- customer -->
-                <div class="change-eta">
-                    <form class="flex delayForm" action="">
-                        <input type="text" name="restarant_name" placeholder="#">
-                        <button class="btn-doit">Do it</button>
-                    </form>
-                </div>
 
-
-                <table id="customerTable">
+                <table class="customerTable" id="customerTable">
                     <thead>
                         <tr>
                             <td><i class="fa fa-user fa-2x" aria-hidden="true"></i></td>
                             <td>NAME</td>
+                            <td>MOBILE</td>
                             <td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <div class="change-eta">
+                                    <form class="flex delayForm" action="">
+                                        <input type="text" name="restarant_name" placeholder="Global">
+                                        <button class="btn-doit">Add</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     </thead>
                     <tbody id="customerListAdmin">
-                        <!-- <tr class="customer-row">
-                            <td width="8%" class="heads">3</td>
-                            <td width="58%" class="name"></td>
-                            <td width="21%" class="timer">2<span>mins</span></td>
-                            <td width="13%" style="text-align:right;">
-                              <button class="btn-remove">Remove</button>
-                            </td>
-                        </tr> -->
-
+                        <!-- dynamic content -->
                     </tbody>
 
                 </table>
@@ -84,8 +65,8 @@
     </div>
     <!-- end wrapper -->
     <footer>
-
-    </footer>
+    <img src="images/foot_line.png" width="226" height="30" alt=""/>
+  </footer>
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>

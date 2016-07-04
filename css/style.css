@@ -1,553 +1,451 @@
-html{
+html {}
+body {
+    margin: 0;
 }
-
-body{
-  margin: 0;
+.more-top-bottom {
+    margin: 15px 0 10px 0;
 }
-
-.more-top-bottom{
-  margin: 15px 0 10px 0;
-}
-
 .less-top-bottom {
-  margin: 2px;
+    margin: 2px;
 }
-
-a:link, a:visited, a:active{
-  text-decoration: none;
-  color: black;
-  margin: 0;
-  margin-bottom: 10px;
-  font-size: 14px;
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
-
 p {
-  margin-top: 2px;
-  margin-bottom: 10px;
-  font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
-
-#wrapper{
-  width: 960px;
-  margin: 0 auto;
-  text-align: center;
+#wrapper {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
 }
-
 header {
-  padding: 20px;
-  text-align: center;
-  height: 140px;
-  width: 100%;
-  background: #ebebeb;
+    padding: 20px 0;
+    text-align: center;
+    height: 150px;
+    width: 100%;
 }
-
 footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  height: 40px;
-  background: #ebebeb;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    height: 40px;
+    background: white;
 }
-
-.container{
-  padding-top: 40px;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
-  text-align: center;
-  flex-wrap: wrap;
+.container {
+    padding-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    text-align: center;
+    flex-wrap: wrap;
 }
-
 
 /*/////////////////////////////////////*/
 
-.home-container{
-  padding-top: 40px;
-  text-align: center;
+.home-container {
+    padding-top: 40px;
+    text-align: center;
 }
-
-.home-chosen-restaurant{
-  width: 350px;
-  margin: 7px;
-  display: flex;
-  flex-flow:column;
-  justify-content: flex-start;
+.home-chosen-restaurant {
+    width: 350px;
+    margin: 7px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
 }
-
-.home-chosen-details{
-  width: 100%;
-  background: #e8e8e8;
-  padding: 5px 0;
-  display: flex;
-  flex-flow:column;
-  justify-content: flex-start;
-  border-radius: 3px;
+.home-chosen-details {
+    width: 100%;
+    background: #e8e8e8;
+    padding: 5px 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    border-radius: 3px;
 }
-
-.home-customer-row{
-  width: 100%;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  margin-top: 5px;
-  color: white;
-  background: #05A5B0;
+.home-customer-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    color: white;
+    background: #05A5B0;
 }
-
 .home-customer-heads {
-  width: 70px;
-  background-image: url('../images/head-back.png');
-  background-repeat: no-repeat;
-  padding-top: 14px;
-  letter-spacing: 10px;
-  color: #05A5B0;
-  font-size: 25px;
-  text-align: center;
+    width: 70px;
+    background-image: url('../images/head-back.png');
+    background-repeat: no-repeat;
+    padding-top: 14px;
+    letter-spacing: 10px;
+    color: #05A5B0;
+    font-size: 25px;
+    text-align: center;
 }
-
-.home-customer-name{
-  text-align: left;
-  width:60%;
-  font-size: 28px;
-  font-weight: 500;
-  margin-top: 15px;
-  color: white;
+.home-customer-name {
+    text-align: left;
+    width: 60%;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 15px;
+    color: white;
 }
-
-.home-customer-mins{
-  letter-spacing: 2px;
-  padding-right: 15px;
-  font-size: 35px;
-  font-weight: 700;
-  margin-top: 10px;
-  color: white;
+.home-customer-mins {
+    letter-spacing: 2px;
+    padding-right: 15px;
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 10px;
+    color: white;
 }
-
-.home-customer-mins span{
-  letter-spacing: 0;
-  font-size: 14px;
+.home-customer-mins span {
+    letter-spacing: 0;
+    font-size: 14px;
 }
-
-
-
-
 
 /*//////////////////////////////////////////////////*/
 
-.restaurantTitle{
-  font-size: 16px;
-  margin: 20px;
+.restaurantTitle {
+    font-size: 16px;
+    margin: 20px;
 }
-
-.customer-row{
-  border-bottom: 5px solid white;
-  padding: 10px;
-  margin: 10px;
-  color: white;
-  background: #05A5B0;
+.customer-row {
+    border-bottom: 10px solid white;
+    padding: 10px;
+    color: white;
+    background: #05A5B0;
 }
-
-.home-restaurant{
-  width: 305px;
-  margin: 7px;
-  display: flex;
-  flex-flow:row;
-  justify-content: flex-start;
+.home-restaurant {
+    width: 305px;
+    margin: 7px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
 }
-
-.details{
-  background: #e8e8e8;
-  width: 210px;
-  padding: 10px;
-  display: flex;
-  flex-flow:column;
-  justify-content: flex-start;
-  border-radius: 3px;
+.details {
+    background: #e8e8e8;
+    width: 210px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    border-radius: 3px;
 }
-
-.home-stats{
-  border-radius: 3px;
-  text-align: center;
-  color: white;
-  background: #13747d;
-  width: 100px;
-  padding: 10px;
-  display: flex;
-  flex-flow: column;
-  justify-content:space-around;
-  border-left: 1px dashed #ccc;
+.home-stats {
+    border-radius: 3px;
+    text-align: center;
+    color: white;
+    background: #13747d;
+    width: 100px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    border-left: 1px dashed #ccc;
 }
-#customerTable {
-  text-align: center;
-  width: 700px;
+.customerTable {
+    margin: 0 auto;
+    width: 100%;
 }
-
-h2{
-  margin-top: 8px;
-  margin-bottom: 3px;
-  font-size: 18px;
+h2 {
+    margin-top: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
 }
-
-
-
-td{
-  padding:10px 20px;
-  border-right: 1px dashed white;
-  border-radius: 5px;
+td {
+    padding: 10px 20px;
+    border-right: 1px dashed white;
+    border-radius: 5px;
 }
-
-.vip{
-  margin-top: 15px;
-  font-size: 16px;
-  color: #999;
+.vip {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #999;
 }
-
-thead{
-  font-size: 14px;
-  color: #999;
+thead {
+    font-size: 20px;
+    color: #999;
 }
-
 .name {
-  text-align: left;
-  padding-left: 15px;
-  font-size: 22px;
-  font-weight: 500;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 22px;
+    font-weight: 500;
 }
-
-.timer{
-  letter-spacing: 1.2px;
-  font-size: 30px;
-  font-weight: 700;
+.timer {
+    letter-spacing: 1.2px;
+    font-size: 30px;
+    font-weight: 700;
 }
-
 .heads {
-  padding-top: 12px;
-  color: #878787;
-  background-image: url('../images/head-back.png');
-  background-repeat: no-repeat;
-  background-position: 3px 0;
-  font-size: 25px;
-  text-align: center;
+    padding-top: 12px;
+    color: #878787;
+    background-image: url('../images/head-back.png');
+    background-repeat: no-repeat;
+    background-position: 8px 0;
+    font-size: 25px;
+    text-align: center;
 }
-
-.timer span{
-  letter-spacing: .2px;
-  font-size: 15px;
-  font-weight: 700;
+.timer span {
+    letter-spacing: .2px;
+    font-size: 15px;
+    font-weight: 700;
 }
-
-
-.queue, .wait{
-  text-align: left;
-  font-size: 12px;
+.queue, .wait {
+    text-align: left;
+    font-size: 12px;
 }
-
-.queue-num{
-  text-align: left;;
-  font-size: 80px;
-  font-weight: 500;
+.queue-num {
+    text-align: left;
+    ;
+    font-size: 80px;
+    font-weight: 500;
 }
-.wait-num{
-  text-align: left;;
-  font-size: 42px;
-  font-weight: 600;
+.wait-num {
+    text-align: left;
+    ;
+    font-size: 42px;
+    font-weight: 600;
 }
-
-
-
 
 /*///////////////////////////////////////////////
 BUTTONS
 ///////////////////////////////////////////////*/
 
 .btn-doit {
-  color: white;
-  width: 70px;
-  background: #13747d;
-  padding: 8px;
-  border-radius: 5px;
-  border: 0;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    margin-left: 15px;
+    color: white;
+    width: 80px;
+    background: #13747d;
+    padding: 8px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
-
-
-.btn-submit {
-  color: white;
-  width: 100px;
-  background: #13747d;
-  padding: 8px;
-  margin: 6px;
-  border-radius: 5px;
-  border: 0;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
 .wide {
-  width: 100%;
-  padding: 12px;
-
+    width: 100%;
+    padding: 12px;
 }
-
 .upload {
-  background: rgb(106, 106, 106);
-  width: 98%;
-  padding: 12px;
+    background: rgb(106, 106, 106);
+    width: 98%;
+    padding: 12px;
 }
-
-.btn-submit:hover, .btn-doit:hover, .btn-remove:hover{
-  background: #e4b63b;
+.btn-submit:hover, .btn-doit:hover, .btn-remove:hover {
+    background: #e4b63b;
 }
-
 .btn-register {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  height: 35px;
-  border: 1px solid #ccc;
-  padding: 4px;
-  margin: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 35px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
 }
-
-.btn-logout{
-  position: absolute;
-  top: 55px;
-  right: 10px;
-  width: 80px;
-  height: 35px;
-  border: 1px solid #ccc;
-  padding: 4px;
-  margin: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
+.topright-btns {}
+.login_form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 35px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
 }
-
-.btn-remove{
-  background: #13747d;
-  width:65px;
-  height: 35px;
-  border: 0;
-  border-radius: 5px;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.btn-logout {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    width: 80px;
+    height: 35px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
 }
-
-
-
-.btn-small a:link, .btn-small a:active,  .btn-small a:visited{
-  text-decoration: none;
-  color: #d0cca2;
+.btn-login {
+    margin: 5px 0 0 2px;
+    width: 119px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
 }
-
+.btn-remove {
+    background: #13747d;
+    width: 80px;
+    height: 35px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-small a:link, .btn-small a:active, .btn-small a:visited {
+    text-decoration: none;
+    color: #d0cca2;
+}
 input, placeholder {
-  color: #d0cca2;
+    color: #d0cca2;
 }
-
 input, textarea {
-  font-size: 25px;
-  background : white;
-  color: black;
-  font-variant: all-small-caps;
+    font-size: 25px;
+    background: white;
+    color: black;
+    font-variant: all-small-caps;
 }
-
 input:focus {
-  outline: none;
+    outline: none;
 }
-
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-
+.column {
+    display: flex;
+    flex-flow: column;
+}
 .loginForm {
-  margin-top: 100px;
-  /*display: flex;*/
+  padding-left: 15px;
+    position: absolute;
+    top: 15px;
 }
-
 .loginForm input {
-  width: 200px;
-  padding: 8px;
-  margin: 2px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+    width: 100px;
+    padding: 8px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
 }
-
 .regForm input {
-  width: 92%;
-  padding: 12px;
-  margin: 6px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+    width: 92%;
+    padding: 12px;
+    margin: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
 }
-
 .customerForm input {
-  width: 90%;
-  padding: 12px;
-  margin: 6px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+    padding: 12px;
+    margin: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 18px;
 }
-
-
-/*///////////////////////////////
-CHECKBOX
-/////////////////////////////////*/
-
-/*.control {
-	font-size: 18px;
-	position: relative;
-	display: block;
-	margin-bottom: 15px;
-	padding-left: 30px;
-	cursor: pointer;
+.customerForm {
+    width: 100%;
+    margin: 0 auto;
 }
-
-.control input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
+.top {
+    height: 55px;
+    width: 100%;
+    margin: 30px auto;
+    padding-bottom: 50px;
+    border-bottom: 1px dashed #ccc;
 }
-
-.control__indicator {
-  margin: 8px;
-	position: absolute;
-	top:5px;
-  right:5px;
-	left: 0;
-	width: 30px;
-	height: 30px;
-	background: #e6e6e6;
+#customer_heads {
+    width: 54px;
 }
-
-.control--radio .control__indicator {
-	border-radius: 50%;
+#customer_name {
+    width: 300px;
 }
-
-.control--checkbox .control__indicator:after {
-	top: 4px;
-	left: 10px;
-	width: 7px;
-	height: 15px;
-	transform: rotate(45deg);
-	border: solid #fff;
-	border-width: 0 2px 2px 0;
+#customer_mobile {
+    width: 210px;
 }
-
-.control__indicator:after {
-	position: absolute;
-	display: none;
-	content: '';
+#customer_eta {
+    width: 60px;
 }
-
-.control input:checked ~ .control__indicator:after {
-	display: block;
+.btn-submit {
+    color: white;
+    width: 210px;
+    background: #13747d;
+    padding: 8px;
+    margin: 6px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
-
-.control:hover input ~ .control__indicator,
-.control input:focus ~ .control__indicator {
-	background: #ccc;
-}
-
-
-.control input:checked ~ .control__indicator {
-	background: #e4b63b;
-}
-
-
-.control:hover input:not([disabled]):checked ~ .control__indicator,
-.control input:checked:focus ~ .control__indicator {
-	background: #0e647d;
-}
-
-.control input:disabled ~ .control__indicator {
-	pointer-events: none;
-	opacity: .6;
-	background: #e6e6e6;
-}
-*/
-
-
 .delayForm input {
-  width: 30px;
-  padding: 8px;
-  margin-right: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
 }
-
 .change-eta {
-  text-align: right;
-  margin-bottom: 10px;
-  height:40px;
-  float: right;
-  display: flex;
-  width: 140px;
+    text-align: right;
+    margin-bottom: 10px;
+    height: 40px;
+    float: right;
+    display: flex;
+    width: 200px;
 }
-
 .regForm {
-  display: flex;
-  flex-flow: column;
+    display: flex;
+    flex-flow: column;
 }
-
-.flex{
-  display: flex;
+.flex {
+    display: flex;
 }
-
-
 .regPage-container {
-  margin-top:30px;
-  display: flex;
-  flex-flow: row
+    margin-top: 30px;
+    display: flex;
+    flex-flow: row
 }
-
 .regPage-container .one {
-  border-right: 1px dashed #ccc;
-  width: 55%;
-  text-align: center;
-  margin: 10px;
-  padding-right: 30px;
+    border-right: 1px dashed #ccc;
+    width: 55%;
+    text-align: center;
+    margin: 10px;
+    padding-right: 30px;
 }
 .regPage-container .two {
-  width: 30%;
+    width: 30%;
 }
-
 .customerPage-container {
-  margin-top: 30px;
-  display: flex;
-  flex-flow: row
+    margin-top: 30px;
 }
 
-.customerPage-container .one {
-  text-align: center;
-  width: 70%;
-  margin-left: 25px;
-  padding-left: 25px;
+.publicPage-container {
+  margin: 30px auto;
+  max-width: 600px
 }
 
-.customerPage-container .two {
-  width: 30%;
-}
 
-.load-box{
-  border-radius: 5px;
-  background: #e3e3e3;
-  width: 100%;
-  height: 325px;
-  margin: 17px 5px;
+.load-box {
+    border-radius: 5px;
+    background: #e3e3e3;
+    width: 100%;
+    height: 325px;
+    margin: 17px 5px;
 }

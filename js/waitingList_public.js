@@ -14,7 +14,7 @@ $(document).ready(function() {
    }
    restaurantNameSuburb = getParameterByName('r_id');
    console.log(restaurantNameSuburb);
-   $.getJSON('http://localhost:3000/' + 'australian-job-carlton', function(data) {
+   $.getJSON('http://localhost:3000/' + restaurantNameSuburb, function(data) {
 
      var title = $('<h2>').text('australian-job-carlton');
      $('#restaurantTitle').append(title);
@@ -30,10 +30,6 @@ $(document).ready(function() {
             .addClass('name')
             .text(customerRef.customerName);
 
-        var customerPhone = $('<td>')
-           .attr('width', '300px')
-           .addClass('name')
-           .text(customerRef.phone);
          // insert time tracking
 
          var now = new Date();
@@ -61,8 +57,7 @@ $(document).ready(function() {
          $(customerRow).append(
             customerHeads,
             customerName,
-            customerTimer,
-            customerPhone
+            customerTimer
          );
 
 

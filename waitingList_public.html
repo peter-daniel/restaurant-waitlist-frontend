@@ -16,36 +16,34 @@
 
 <body>
     <header>
-        <button class="btn-register">Register</button>
-        <div>
-            <form class="loginForm" method="get">
+        <img src="images/querer_logo.png" width="240" height="154" alt="" />
+        <div class="loginForm">
+            <form class="column" method="get">
                 <input type="email" name="user_email" required>
                 <input type="password" name="user_pwd" required>
-                <button class="btn-submit">Log In</button>
+                <button class="btn-login">Log In</button>
             </form>
-        </div>
+            </div>
+                <button class="btn-register">Register</button>
     </header>
 
     <div id="wrapper">
 
-        <div class="customerPage-container">
-            <div class="one">
-                <div id="restaurantTitle"></div>
+        <div class="publicPage-container">
+
+            <div class="bottom">
                 <!-- customer -->
 
-                <table id="customerTable">
+                <table class="customerTable" id="customerTable">
                     <thead>
                         <tr>
                             <td><i class="fa fa-user fa-2x" aria-hidden="true"></i></td>
                             <td>NAME</td>
                             <td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                     </thead>
                     <tbody id="customerListAdmin">
-
+                        <!-- dynamic content -->
                     </tbody>
 
                 </table>
@@ -55,8 +53,8 @@
     </div>
     <!-- end wrapper -->
     <footer>
-
-    </footer>
+    <img src="images/foot_line.png" width="226" height="30" alt=""/>
+  </footer>
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
