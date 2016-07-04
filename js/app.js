@@ -33,8 +33,10 @@ $(document).ready(function() {
           waitingArray.push(delta);
         });
         var eta = Math.max.apply(Math, waitingArray);
-        if (eta < 1) {
+        if (eta < 1 && data[i].customers.length !== 0) {
           eta = "Due";
+        } else if (data[i].customers.length === 0) {
+          eta = "--";
         }
         console.log(waitingArray);
         console.log(eta);
