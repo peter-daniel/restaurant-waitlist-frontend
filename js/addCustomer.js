@@ -225,6 +225,8 @@ $(document).ready(function() {
       }).done(function() {
          location.reload();
          console.log("database should load new customer");
+         $('.customerForm p').text("EDIT CUSTOMER FORM");
+
       });
     }
    });
@@ -258,12 +260,15 @@ $(document).ready(function() {
           $('#customer_heads').val(data.heads);
           $('#customer_eta').val(globalEta);
           $('#newCustomer').attr('data-class', buttonClass);
+          $('.customerForm p').text("EDIT CUSTOMER FORM");
         } else {
           buttonStatus = false;
           $('#customer_name').val("");
           $('#customer_mobile').val("");
           $('#customer_heads').val("");
           $('#customer_eta').val("");
+          $('.customerForm p').text("NEW CUSTOMER FORM");
+
         }
         console.log("after click = "+ buttonStatus);
      });
