@@ -50,7 +50,7 @@ $(document).ready(function() {
         // If local Storage has no authentication token, render the link tag to non-admin page
         if (localStorage.getItem('Authentication')){
           var linkToAdmin = $('<a>')
-          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb +  "/admin")
+          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
           .append(homeRestaurant);
           $('#restaurant-list').append(linkToAdmin);
         } else {
