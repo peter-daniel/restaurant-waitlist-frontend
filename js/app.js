@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
-  console.log('ajax loaded');
   $.getJSON('http://localhost:3000', function(data) {
-    console.log(Object.keys(data).length);
     $.each(data, function(i) {
       if (Object.keys(data).length === 0) {
         $('#restaurant-list').append('<h2>').text('No restauants yet! Please try again later.');
@@ -31,8 +29,8 @@ $(document).ready(function() {
         var now = new Date();
         var momentNow = moment(now);
         var waitingArray = [];
+
         $.each(data[i].customers, function(j) {
-          //  console.log(data[i].customers[j].finishedWaiting);
           var delta =
             (moment(data[i].customers[j].finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
           waitingArray.push(delta);
@@ -43,54 +41,48 @@ $(document).ready(function() {
         } else if (data[i].customers.length === 0) {
           eta = "--";
         }
-        console.log(waitingArray);
-        console.log(eta);
         var waitNum = $('<div>').addClass('wait-num')
           .text(eta);
         // .text(_.max(customers, function(customers){ return customers.finishedWaiting}))
         $(homeStats).append(queue, queueNum, wait, waitNum);
         $(homeRestaurant).append(homeStats);
-        var link = $('<a>')
+
+        // If local Storage has no authentication token, render the link tag to non-admin page
+        if (localStorage.getItem('Authentication')){
+          var linkToAdmin = $('<a>')
+          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb +  "/admin")
+          .append(homeRestaurant);
+          $('#restaurant-list').append(linkToAdmin);
+        } else {
+          var linkToNonAdmin = $('<a>')
           .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb)
           .append(homeRestaurant);
-        $('#restaurant-list').append(link);
+          $('#restaurant-list').append(linkToNonAdmin);
+        }
       }
     });
   });
 
-  // $('button').on('click', function(event) {
-  //  MOMENT
-  //  var max = customers.map(function(customer){
-  //    return moment(customer.finishedWaiting, 'DD.MM.YYYY');
-  //  });
-  //  moment.max(max);  // '11.01.1993'
-  //
-  //  // ADD A DONUT
-  //  $('button').on('click', function(event) {
-  //     //stop page refresh
-  //     event.preventDefault();
-  //     //store the input values to prepend later
-  //     var style_input = $('input:eq(0)').val();
-  //     var flavor_input = $('input:eq(1)').val();
-  //     $.ajax({
-  //        url: 'https://api.doughnuts.ga/doughnuts/',
-  //        method: 'POST',
-  //        data: {
-  //           //add the input data to the api
-  //           style: style_input,
-  //           flavor: flavor_input
-  //        },
-  //        success: function() {
-  //           console.log('added succesfully');
-  //        },
-  //        error: function() {
-  //           console.log('not added');
-  //        }
-  //     }).done(function() {
-  //        //add the input data to the dom
-  //        var donut = $('<li>').text(style_input + ' - ' + flavor_input);
-  //        $('section ul').prepend(donut);
-  //     });
-  //  });
+  // Restaurant authentication:
+  $('.btn-submit').on('click', function(){
+      event.preventDefault();
+      console.log($('input:eq(0)').val());
+      console.log('Clicked!');
+      $.ajax({
+        url: 'http://localhost:3000/signin',
+        data: {
+          restaurantEmail: $('input:eq(0)').val(),
+          password: $('input:eq(1)').val()
+        },
+        dataType: 'json',
+        method: 'POST',
+      }).done(function(data){
+        console.log(data.restaurant);
+        // console.log(data.token);
+        localStorage.setItem('Authentication', "Bearer " + data.token);
+        location.reload();
+        console.log(localStorage.getItem('Authentication'));
+      });
+    });
 
 }); // end document ready
