@@ -52,7 +52,25 @@ $(document).ready(function() {
       });
    });
 
-
+   var now = new Date();
+   var momentNow = moment(now);
+   var waitingArray = [];
+   $.each(data[i].customers, function(j) {
+     //  console.log(data[i].customers[j].finishedWaiting);
+     var delta =
+       (moment(data[i].customers[j].finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
+     waitingArray.push(delta);
+   });
+   var eta = Math.max.apply(Math, waitingArray);
+   if (eta < 1 && data[i].customers.length !== 0) {
+     eta = "Due";
+   } else if (data[i].customers.length === 0) {
+     eta = "--";
+   }
+   console.log(waitingArray);
+   console.log(eta);
+   var waitNum = $('<div>').addClass('wait-num')
+     .text(eta);
 
 }); //end doc ready
 
