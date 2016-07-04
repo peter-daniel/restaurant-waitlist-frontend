@@ -1,19 +1,21 @@
 $(document).ready(function() {
 
    $.getJSON('http://localhost:3000/populate', function(data) {
-      $.each(data, function(i) {
-         var customerRow = $('<tr>').addClass('customer-row');
 
+      $.each(data[0].customers, function(i) {
+       var customerRef = data[0].customers[i];
+
+         var customerRow = $('<tr>').addClass('customer-row');
              var customerHeads = $('<td>').addClass('heads')
               .attr('width', '10px')
-              .text(data[i].__v);
+              .text(customerRef.heads);
              var customerName = $('<td>')
               .attr('width', '300px')
               .addClass('name')
-              .text(data[i].phone);
+              .text(customerRef.customerName);
              var customerTimer = $('<td>')
               .attr('width', '10px')
-              .text(data[i].__v)
+              .text(customerRef.__v)
               .addClass('timer');
 
             var formTd = $('<td>');
