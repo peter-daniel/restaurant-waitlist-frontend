@@ -4,11 +4,9 @@
 <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700italic,700,600italic,600,400italic,300italic,300,800italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Teko:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Waiting List</title>
 </head>
@@ -31,6 +29,11 @@
                     <div class="flex">
                         <input type="text" name="rest_number" placeholder="Heads">
                         <input type="text" name="rest_site" placeholder="ETA">
+                        <div class="vip"><p>VIP</p></div>
+                      	<label class="control control--checkbox">
+                      		<input type="checkbox" checked="checked"/>
+                      		<div class="control__indicator"></div>
+                      	</label>
                     </div>
                     <button style="width: 96%;" class="btn-submit wide">Submit</button>
                 </form>
@@ -39,34 +42,35 @@
                 <p>CUSTOMER QUEUE</p>
                 <!-- customer -->
                 <div class="change-eta">
-                    <form class="flex customerForm" action="">
-                        <input type="text" name="restarant_name" placeholder="Delay">
-                        <button class="btn-submit wide">Do it</button>
+                    <form class="flex delayForm" action="">
+                        <input type="text" name="restarant_name" placeholder="#">
+                        <button class="btn-doit">Do it</button>
                     </form>
                 </div>
 
 
-                <table>
+                <table id="customerTable">
                     <thead>
                         <tr>
-                            <td>#</td>
+                            <td><i class="fa fa-user fa-2x" aria-hidden="true"></i></td>
                             <td>NAME</td>
-                            <td>WAIT</td>
+                            <td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="customer-row">
-
+                    <tbody id="customerListAdmin">
+                        <!-- <tr class="customer-row">
                             <td width="8%" class="heads">3</td>
                             <td width="58%" class="name"></td>
                             <td width="21%" class="timer">2<span>mins</span></td>
                             <td width="13%" style="text-align:right;">
-                                <button class="btn-remove">Remove</button>
+                              <button class="btn-remove">Remove</button>
                             </td>
-                        </tr>
+                        </tr> -->
 
-                      </tbody>
+                    </tbody>
 
                 </table>
                 <!-- end customer -->
@@ -77,15 +81,10 @@
     <footer>
 
     </footer>
-    <script type="text/template" id="restaurant-list-template">
-        <%= restaurant.customers('customerName') %>
-    </script>
-
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-
-    <script src="js/app.js"></script>
+    <script src="js/addCustomer.js"></script>
 
 </body>
 

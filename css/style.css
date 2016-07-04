@@ -39,6 +39,91 @@ footer {
   flex-wrap: wrap;
 }
 
+
+/*/////////////////////////////////////*/
+
+.home-container{
+  padding-top: 40px;
+  text-align: center;
+}
+
+.home-chosen-restaurant{
+  width: 350px;
+  margin: 7px;
+  display: flex;
+  flex-flow:column;
+  justify-content: flex-start;
+}
+
+.home-chosen-details{
+  width: 100%;
+  background: #e8e8e8;
+  padding: 5px 0;
+  display: flex;
+  flex-flow:column;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+
+.home-customer-row{
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-top: 5px;
+  color: white;
+  background: #05A5B0;
+}
+
+.home-customer-heads {
+  width: 70px;
+  background-image: url('../images/head-back.png');
+  background-repeat: no-repeat;
+  padding-top: 14px;
+  letter-spacing: 10px;
+  color: #05A5B0;
+  font-size: 25px;
+  text-align: center;
+}
+
+.home-customer-name{
+  text-align: left;
+  width:60%;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 15px;
+  color: white;
+}
+
+.home-customer-mins{
+  letter-spacing: 2px;
+  padding-right: 15px;
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: white;
+}
+
+.home-customer-mins span{
+  letter-spacing: 0;
+  font-size: 14px;
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////*/
+
+
+.customer-row{
+  border-bottom: 5px solid white;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  background: #05A5B0;
+}
+
 .home-restaurant{
   width: 305px;
   margin: 7px;
@@ -69,16 +154,8 @@ footer {
   justify-content:space-around;
   border-left: 1px dashed #ccc;
 }
-table{
-  width: 100%;
-}
-
-.customer-row{
-  border-bottom: 5px solid white;
-  padding: 10px;
-  margin: 10px;
-  color: white;
-  background: #05A5B0;
+#customerTable {
+  width: 700px;
 }
 
 p {
@@ -93,6 +170,25 @@ h2{
   font-size: 18px;
 }
 
+
+
+td{
+  padding:10px 20px;
+  border-right: 1px dashed white;
+  border-radius: 5px;
+}
+
+.vip{
+  margin-top: 15px;
+  font-size: 16px;
+  color: #999;
+}
+
+thead{
+  font-size: 14px;
+  color: #999;
+}
+
 .name {
   text-align: left;
   padding-left: 15px;
@@ -101,10 +197,19 @@ h2{
 }
 
 .timer{
-
   letter-spacing: 1.2px;
   font-size: 30px;
   font-weight: 700;
+}
+
+.heads {
+  padding-top: 12px;
+  color: #878787;
+  background-image: url('../images/head-back.png');
+  background-repeat: no-repeat;
+  background-position: 3px 0;
+  font-size: 25px;
+  text-align: center;
 }
 
 .timer span{
@@ -113,23 +218,6 @@ h2{
   font-weight: 700;
 }
 
-td{
-  padding:10px 20px;
-  border-radius: 5px;
-}
-
-thead{
-  color: #999;
-}
-
-
-.heads {
-  padding-top: 12px;
-  color: #878787;
-  background-image: url('../images/head-back.png');
-  font-size: 25px;
-  text-align: center;
-}
 
 .queue, .wait{
   text-align: left;
@@ -154,43 +242,18 @@ thead{
 BUTTONS
 ///////////////////////////////////////////////*/
 
-.btn-addto5 {
-  font-family: 'Teko', sans-serif;
-  position: absolute;
-  color: #0abfbc;
-  width: 40px;
-  background: #fcf7c5;
-  border: 2px solid #0abfbc;
-  padding: 5px 5px 2px 5px;
-  margin: -235px 0 15px 5px;
-  border-radius: 3px;
-  font-size: 15px;
+.btn-doit {
+  color: white;
+  width: 70px;
+  background: #13747d;
+  padding: 8px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
-}
-.btn-addto5:hover {
-  background: #0abfbc;
-  color: white;
 }
 
-.btn-remove-from5 {
-  font-family: 'Teko', sans-serif;
-  position: absolute;
-  color: #0abfbc;
-  width: 22px;
-  background: #fcf7c5;
-  border: 2px solid #0abfbc;
-  padding: 1px 2px 0 2px;
-  margin: -162px 0 15px 5px;
-  border-radius: 3px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.btn-remove-from5:hover {
-  background: #0abfbc;
-  color: white;
-}
 
 .btn-submit {
   color: white;
@@ -206,7 +269,7 @@ BUTTONS
 }
 
 .wide {
-  width: 98%;
+  width: 100%;
   padding: 12px;
 
 }
@@ -217,9 +280,8 @@ BUTTONS
   padding: 12px;
 }
 
-
-.btn-submit:hover{
-  background: #0abfbc;
+.btn-submit:hover, .btn-doit:hover, .btn-remove:hover{
+  background: #e4b63b;
 }
 
 .btn-register {
@@ -253,15 +315,18 @@ BUTTONS
 }
 
 .btn-remove{
-  background: white;
-  width: 100px;
+  background: #13747d;
+  width:65px;
   height: 35px;
-  border: 1px solid #ccc;
+  border: 0;
   border-radius: 5px;
   font-size: 14px;
-  color: #999;
+  color: white;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
+
+
 
 .btn-small a:link, .btn-small a:active,  .btn-small a:visited{
   text-decoration: none;
@@ -306,7 +371,7 @@ input:-webkit-autofill {
 }
 
 .customerForm input {
-  width: 89.5%;
+  width: 90%;
   padding: 12px;
   margin: 6px;
   border-radius: 5px;
@@ -314,11 +379,107 @@ input:-webkit-autofill {
   font-size: 15px;
 }
 
+
+/*///////////////////////////////
+CHECKBOX
+/////////////////////////////////*/
+
+.control {
+	font-size: 18px;
+	position: relative;
+	display: block;
+	margin-bottom: 15px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.control__indicator {
+  margin: 8px;
+	position: absolute;
+	top:5px;
+  right:5px;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+	top: 4px;
+	left: 10px;
+	width: 7px;
+	height: 15px;
+	transform: rotate(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+}
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+
+/* Hover and focus states */
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+	background: #e4b63b;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #0e647d;
+}
+
+/* Disabled state */
+.control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+
+/*///////////////////////////////////////////
+////////////////////////////////////////////*/
+
+.delayForm input {
+  width: 30px;
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
 .change-eta {
+  text-align: right;
   margin-bottom: 10px;
+  height:40px;
   float: right;
   display: flex;
-  width: 200px;
+  width: 140px;
 }
 
 .regForm {
@@ -356,13 +517,13 @@ input:-webkit-autofill {
 
 .customerPage-container .one {
   border-left: 1px dashed #ccc;
-  width: 60%;
+  width: 70%;
   margin-left: 25px;
   padding-left: 25px;
 }
 
 .customerPage-container .two {
-  width: 40%;
+  width: 30%;
 }
 
 .load-box{
