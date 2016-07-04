@@ -25,18 +25,18 @@
             <div class="two">
                 <form class="customerForm" method="get">
                     <p style="margin-left:10px;">NEW CUSTOMER FORM</p>
-                    <input type="text" name="restarant_name" placeholder="Name">
-                    <input type="text" name="rest_address" placeholder="Mobile">
+                    <input id="customer_name" type="text" name="customer_name" value="" placeholder="Name">
+                    <input id="customer_mobile" type="text" name="customer_mobile" value="" placeholder="Mobile">
                     <div class="flex">
-                        <input type="text" name="rest_number" placeholder="Heads">
-                        <input type="text" name="rest_site" placeholder="ETA">
-                        <div class="vip"><p>VIP</p></div>
+                        <input id="customer_heads" type="text" name="customer_heads" value="" placeholder="Heads">
+                        <input id="customer_eta" type="text" name="customer_eta" value="" placeholder="ETA">
+                        <div><p>VIP</p></div>
                       	<label class="control control--checkbox">
-                      		<input type="checkbox" checked="checked"/>
+                      		<input id="customer_vip" type="checkbox" checked="checked" value="">
                       		<div class="control__indicator"></div>
                       	</label>
                     </div>
-                    <button style="width: 96%;" class="btn-submit wide">Submit</button>
+                    <button style="width: 96%;" id="newCustomer" class="btn-submit wide">Submit</button>
                 </form>
             </div>
             <div class="one">
