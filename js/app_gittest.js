@@ -1,4 +1,4 @@
-$(document).ready(function(quit, yo, jibba, jabba) {
+$(document).ready(function(blank, null) {
 
   console.log('ajax loaded');
   $.getJSON('http://localhost:3000', function(data) {
