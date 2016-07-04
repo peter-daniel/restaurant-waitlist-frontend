@@ -108,77 +108,6 @@ $(document).ready(function() {
 
     });
   });
-
-  //
-  // function addCustomerToDomFromForm() {
-  //   var customerRow = $('<tr>').addClass('customer-row');
-  //       var customerHeads = $('<td>').addClass('heads')
-  //        .attr('width', '10px')
-  //        .text(customer_heads);
-  //       var customerName = $('<td>')
-  //        .attr('width', '300px')
-  //        .addClass('name')
-  //        .text(customer_name);
-  //        // insert time tracking
-  //        var now = new Date();
-  //        var momentNow = moment(now);
-  //        var waitingArray = [];
-  //        $.each(customer_eta, function() {
-  //          var delta =
-  //            (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
-  //          waitingArray.push(delta);
-  //        });
-  //        var eta = Math.max.apply(Math, waitingArray);
-  //        if (eta < 1 && data[i].length !== 0) {
-  //          eta = "Due";
-  //        } else if (data[i].length === 0) {
-  //          eta = "--";
-  //        }
-  //        console.log(waitingArray);
-  //        console.log(eta);
-  //        var customerTimer = $('<td>')
-  //        .attr('width', '10px')
-  //        .text(eta)
-  //        .addClass('timer');
-  //        // end time tracking
-  //
-  //      var formTd = $('<td>');
-  //        var delayForm = $('<form>').addClass('delayForm flex');
-  //          var customerDelayField = $('<input>')
-  //            .attr('type', 'number')
-  //            .attr('placeholder', '#');
-  //          var customerDelayBtn = $('<button>')
-  //            .addClass('btn-remove')
-  //            .text('Do it');
-  //        var formComplete = $(delayForm).append(customerDelayField, customerDelayBtn);
-  //      $(formTd).append(formComplete);
-  //
-  //      var customerEditRemoveBtnTd = $('<td>').addClass('flex');
-  //        var customerRemoveBtn = $('<button>')
-  //           .addClass('btn-remove')
-  //           .css('margin-left', '5px')
-  //           .text('Remove');
-  //        var customerEditBtn = $('<button>')
-  //           .addClass('btn-remove')
-  //           .text('Edit');
-  //        $(customerEditRemoveBtnTd).append(customerEditBtn, customerRemoveBtn);
-  //
-  // $(customerRow).append(
-  //  customerHeads,
-  //  customerName,
-  //  customerTimer,
-  //  formTd,
-  //  customerEditRemoveBtnTd
-  // );
-  //
-  //
-  //
-  // }
-
-
-  //
-
-
   ////////////////////////////////////////////////
   // CRUD
   ////////////////////////////////////////////////
@@ -205,7 +134,7 @@ $(document).ready(function() {
         url: 'http://localhost:3000/' + restaurantNameSuburb + '/addcustomer',
         method: 'POST',
         headers: {
-          "Authorization": localStorage.getItem('Authentication')
+          "Authorization": localStorage.getItem('Authorization')
         },
         data: {
           //add the input data to the api
@@ -225,7 +154,7 @@ $(document).ready(function() {
         url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + $('#newCustomer').attr('data-class') + '/update',
         method: 'PUT',
         headers: {
-          "Authorization": localStorage.getItem('Authentication')
+          "Authorization": localStorage.getItem('Authorization')
         },
         data: {
           //add the input data to the api
@@ -250,7 +179,7 @@ $(document).ready(function() {
       url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass + '/removecustomer',
       method: 'DELETE',
       headers: {
-        "Authorization": localStorage.getItem('Authentication')
+        "Authorization": localStorage.getItem('Authorization')
       },
       dataType: 'json',
 
@@ -267,7 +196,7 @@ $(document).ready(function() {
       url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass,
       method: 'GET',
       headers: {
-        "Authorization": localStorage.getItem('Authentication')
+        "Authorization": localStorage.getItem('Authorization')
       },
       dataType: 'json',
 
