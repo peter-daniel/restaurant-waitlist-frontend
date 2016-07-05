@@ -63,7 +63,7 @@ $(document).ready(function() {
   $('#btn-signin').on('click', function(){
       event.preventDefault();
       $.ajax({
-        url: 'http://localhost:3000/signin',
+        url: apiURL+'signin',
         data: {
           restaurantEmail: $('input:eq(0)').val(),
           password: $('input:eq(1)').val()
