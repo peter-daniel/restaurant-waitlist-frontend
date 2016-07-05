@@ -298,7 +298,7 @@ BUTTONS
 }
 .btn-login {
     margin: 5px 0 0 2px;
-    width: 119px;
+    width: 80px;
     height: 35px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -346,7 +346,7 @@ input:-webkit-autofill {
     top: 15px;
 }
 .loginForm input {
-    width: 100px;
+    width: 150px;
     padding: 8px;
     margin: 2px;
     border-radius: 5px;
