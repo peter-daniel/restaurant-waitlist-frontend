@@ -1,4 +1,8 @@
+var apiURL = 'https://pristine-big-bend-44936.herokuapp.com/';
+// var apiURL = 'http://localhost:3000/';
+
 $(document).ready(function() {
+
   // temporary bucket that will be used to reshuffle the dataset by ETA
   var dataSortedByETA = [];
   var buttonStatus = false;
@@ -19,7 +23,7 @@ $(document).ready(function() {
   console.log(restaurantNameSuburb);
 
   $.ajax({
-    url: 'http://localhost:3000/' + restaurantNameSuburb + '/admin',
+    url: apiURL + restaurantNameSuburb + '/admin',
     headers: {
       "Authorization": localStorage.getItem('Authorization') // This should be authorization; not authentication
     },
@@ -139,7 +143,7 @@ $(document).ready(function() {
     if (buttonStatus === false) {
 
       $.ajax({
-        url: 'http://localhost:3000/' + restaurantNameSuburb + '/addcustomer',
+        url: apiURL + restaurantNameSuburb + '/addcustomer',
         method: 'POST',
         headers: {
           "Authorization": localStorage.getItem('Authorization')
@@ -159,7 +163,7 @@ $(document).ready(function() {
     } // end if statement
     else {
       $.ajax({
-        url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + $('#newCustomer').attr('data-class') + '/update',
+        url: apiURL + restaurantNameSuburb + '/' + $('#newCustomer').attr('data-class') + '/update',
         method: 'PUT',
         headers: {
           "Authorization": localStorage.getItem('Authorization')
@@ -184,7 +188,7 @@ $(document).ready(function() {
   function deleteMe() {
     var buttonClass = $(this).attr('class').split(' ')[1];
     $.ajax({
-      url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass + '/removecustomer',
+      url: apiURL + restaurantNameSuburb + '/' + buttonClass + '/removecustomer',
       method: 'DELETE',
       headers: {
         "Authorization": localStorage.getItem('Authorization')
@@ -201,7 +205,7 @@ $(document).ready(function() {
     console.log("before click = " + buttonStatus);
     var buttonClass = $(this).attr('class').split(' ')[1];
     $.ajax({
-      url: 'http://localhost:3000/' + restaurantNameSuburb + '/' + buttonClass,
+      url: apiURL + restaurantNameSuburb + '/' + buttonClass,
       method: 'GET',
       headers: {
         "Authorization": localStorage.getItem('Authorization')

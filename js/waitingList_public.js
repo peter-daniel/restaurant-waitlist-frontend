@@ -1,3 +1,6 @@
+var apiURL = 'https://pristine-big-bend-44936.herokuapp.com/';
+// var apiURL = 'http://localhost:3000/';
+
 $(document).ready(function() {
 
    var restaurantNameSuburb = "";
@@ -6,7 +9,7 @@ $(document).ready(function() {
    function getParameterByName(name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      var regex = new RegExp("[?&]" + name + "(=([^&``#]*)|&|#|$)"),
          results = regex.exec(url);
       if (!results) return null;
       if (!results[2]) return '';
@@ -14,7 +17,7 @@ $(document).ready(function() {
    }
    restaurantNameSuburb = getParameterByName('r_id');
    console.log(restaurantNameSuburb);
-   $.getJSON('http://localhost:3000/' + restaurantNameSuburb, function(data) {
+   $.getJSON(apiURL + restaurantNameSuburb, function(data) {
 
      var title = $('<h2>').text('australian-job-carlton');
      $('#restaurantTitle').append(title);

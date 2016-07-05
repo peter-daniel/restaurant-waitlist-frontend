@@ -1,6 +1,9 @@
+var apiURL = 'https://pristine-big-bend-44936.herokuapp.com/';
+// var apiURL = 'http://localhost:3000/';
+
 $(document).ready(function() {
 
-  $.getJSON('http://localhost:3000', function(data) {
+  $.getJSON(apiURL, function(data) {
     $.each(data, function(i) {
       if (Object.keys(data).length === 0) {
         $('#restaurant-list').append('<h2>').text('No restauants yet! Please try again later.');
