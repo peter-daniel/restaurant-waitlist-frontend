@@ -212,17 +212,18 @@ $(document).ready(function() {
       if (buttonStatus === false) {
         buttonStatus = true;
         $('#customer_name').val(data.customerName);
-        $('#customer_mobile').val(data.phone);
+        $('#customer_mobile').val(data.phone).prop('disabled', true);
         $('#customer_heads').val(data.heads);
         $('#customer_eta').val(globalEta);
-        $('#newCustomer').attr('data-class', buttonClass);
+        $('#newCustomer').attr('data-class', buttonClass).text('Update');
         $('.customerForm p').text("EDIT CUSTOMER FORM");
       } else {
         buttonStatus = false;
         $('#customer_name').val("");
-        $('#customer_mobile').val("");
+        $('#customer_mobile').val("").prop('disabled', false);
         $('#customer_heads').val("");
         $('#customer_eta').val("");
+        $('#newCustomer').text('Add Customer');
         $('.customerForm p').text("NEW CUSTOMER FORM");
 
       }
@@ -230,7 +231,7 @@ $(document).ready(function() {
     });
   }
 
-  $('.btn-logout').on('click', function() {
+  $('#logout').on('click', function() {
     event.preventDefault();
     console.log('log out');
     localStorage.removeItem('Authorization');

@@ -49,7 +49,7 @@ $(document).ready(function() {
 
         // If local Storage has no authentication token, render the link tag to non-admin page
           var link = $('<a>')
-          .attr('href', './restaurantView.html?r_id=' + data[i].restaurantNameSuburb) // This need to be changed to the customer only queue list
+          .attr('href', './waitingList_public.html?r_id=' + data[i].restaurantNameSuburb) // This need to be changed to the customer only queue list
           .append(homeRestaurant);
           $('#restaurant-list').append(link);
       }
