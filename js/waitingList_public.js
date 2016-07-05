@@ -22,7 +22,7 @@ $(document).ready(function() {
       $.each(data, function(i) {
          var customerRef = data[i];
          var customerRow = $('<tr>').addClass('customer-row');
-         var customerHeads = $('<td>').addClass('heads')
+         var customerHeads = $('<td>').addClass('heads public')
             .attr('width', '10px')
             .text(customerRef.heads);
          var customerName = $('<td>')
@@ -40,7 +40,7 @@ $(document).ready(function() {
                (moment(customerRef.finishedWaiting).valueOf() - momentNow.valueOf()) / 60000;
             waitingArray.push(delta);
          });
-         var eta = Math.max.apply(Math, waitingArray);
+         var eta = Math.max.apply(Math, waitingArray).toFixed(0);
          if (eta < 1 && data[i].length !== 0) {
             eta = "Due";
          } else if (data[i].length === 0) {

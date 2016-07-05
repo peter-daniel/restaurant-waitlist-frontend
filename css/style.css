@@ -2,6 +2,10 @@ html {}
 body {
     margin: 0;
 }
+a:focus {
+  background: none;
+
+}
 .more-top-bottom {
     margin: 15px 0 10px 0;
 }
@@ -194,6 +198,10 @@ thead {
     background-position: 8px 0;
     font-size: 25px;
     text-align: center;
+}
+
+.public{
+  background-position: 16px 0;
 }
 .timer span {
     letter-spacing: .2px;
