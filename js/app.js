@@ -89,7 +89,7 @@ $(document).ready(function() {
     $('#btn-create-restaurant').on('click', function(){
       event.preventDefault();
       $.ajax({
-         url: 'http://localhost:3000/restaurant/add',
+         url: apiURL+'add',
          method: 'POST',
          data: {
            "postcode": $('#restaurant-postcode').val(),
