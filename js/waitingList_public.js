@@ -1,4 +1,4 @@
-var apiURL = 'https://pristine-big-bend-44936.herokuapp.com/';
+var apiURL = 'https://waiting-list-jnp.herokuapp.com/';
 // var apiURL = 'http://localhost:3000/';
 
 $(document).ready(function() {
@@ -17,7 +17,7 @@ $(document).ready(function() {
    }
    restaurantNameSuburb = getParameterByName('r_id');
    console.log(restaurantNameSuburb);
-   $.getJSON(apiURL + restaurantNameSuburb, function(data) {
+   $.getJSON(apiURL + restaurantNameSuburb + "/public", function(data) {
 
      var title = $('<h2>').text('australian-job-carlton');
      $('#restaurantTitle').append(title);

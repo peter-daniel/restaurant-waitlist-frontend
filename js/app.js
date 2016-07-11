@@ -1,4 +1,4 @@
-var apiURL = 'https://pristine-big-bend-44936.herokuapp.com/';
+var apiURL = 'https://waiting-list-jnp.herokuapp.com/';
 // var apiURL = 'http://localhost:3000/';
 
 $(document).ready(function() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
   $('#btn-signin').on('click', function(){
       event.preventDefault();
       $.ajax({
-        url: 'http://localhost:3000/signin',
+        url: apiURL + 'signin',
         data: {
           restaurantEmail: $('input:eq(0)').val(),
           password: $('input:eq(1)').val()
@@ -90,7 +90,7 @@ $(document).ready(function() {
     $('#btn-create-restaurant').on('click', function(){
       event.preventDefault();
       $.ajax({
-         url: 'http://localhost:3000/restaurant/add',
+         url: apiURL + 'restaurant/add',
          method: 'POST',
          data: {
            "postcode": $('#restaurant-postcode').val(),
