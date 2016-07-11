@@ -72,6 +72,7 @@ $(document).ready(function() {
         method: 'POST',
       }).done(function(data){
         if(data){
+          console.log(data);
           localStorage.setItem('Authorization', "Bearer " + data.token);
           window.location.replace('./restaurantView.html?r_id=' + data.restaurant.restaurantNameSuburb);
         } else {
