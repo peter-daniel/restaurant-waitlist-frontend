@@ -1,4 +1,4 @@
-var apiURL = 'https://waiting-list-jnp.herokuapp.com/';
+var apiURL = 'http://localhost:3000/';
 // var apiURL = 'http://localhost:3000/';
 
 $(document).ready(function() {
